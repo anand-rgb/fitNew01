@@ -14,7 +14,7 @@
         }
 
         .hero {
-            background: url('hero.jpg') no-repeat center center/cover; /* Replace with your hero image URL */
+            background: url('hero.jpg') no-repeat center center/cover;
             color: rgb(255, 255, 255);
             padding: 100px 0;
             text-align: center;
@@ -35,7 +35,7 @@
             border: none;
         }
 
-        .services, .testimonials, .signup, .about, .gallery, .contact {
+        .services, .about, .gallery, .contact {
             padding: 60px 0;
             text-align: center;
         }
@@ -66,9 +66,9 @@
         }
 
         .navbar-brand img {
-            height: 70px; /* Adjust the height of the logo */
+            height: 70px;
         }
-        .bg-black{
+        .bg-black {
             background-color: black;
         }
     </style>
@@ -77,7 +77,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <a class="navbar-brand" href="#home">
-            <img src="newlogo.png" alt="Fitness Solutions Logo"> <!-- Replace with your logo URL -->
+            <img src="newlogo.png" alt="Fitness Solutions Logo">
             Fitness Solutions
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,135 +85,127 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#gallery">Gallery</a>               
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        
-            <header class="hero" id="home" data-aos="fade-up">
-                <div class="container">
-                    <h1>Welcome to Fitness Solutions</h1>
-                    <p>Your journey to a healthier life starts here!</p>
-                    <a href="#signup" class="btn btn-primary btn-lg">Join Us Now</a>
-                </div>
-            </header>
-        
-            <section class="about" id="about" data-aos="fade-right">
-                <div class="container">
-                    <h2>About Us</h2>
-                    <p>At Fitness Solutions, we are dedicated to helping you achieve your fitness goals. Our experienced trainers and state-of-the-art facilities provide the perfect environment for your fitness journey.</p>
-                </div>
-            </section>
-        
-            <section class="services" id="services" data-aos="zoom-in">
-                <div class="container">
-                    <h2>Our Services</h2>
-                    <div class="row">
-                        <div class="col-md-4" data-aos="flip-left">
-                            <div class="service-card">
-                                <h3>Personal Training</h3>
-                                <img src="img1.jpeg" class="img-fluid" alt="Personal Training"> <!-- Replace with your image URL -->
-                                <p>Customized training plans tailored to your fitness goals.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4" data-aos="flip-left">
-                            <div class="service-card">
-                                <h3>Group Classes</h3>
-                                <img src="img2.jpeg" class="img-fluid" alt="Group Classes"> <!-- Replace with your image URL -->
-                                <p>Join our energetic group classes for motivation and fun.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4" data-aos="flip-left">
-                            <div class="service-card">
-                                <h3>Nutritional Guidance</h3>
-                                <img src="img3.jpeg" class="img-fluid" alt="Nutritional Guidance"> <!-- Replace with your image URL -->
-                                <p>Expert advice on nutrition to complement your workouts.</p>
-                            </div>
-                        </div>
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home" data-aos="fade-up">
+        <div class="container">
+            <h1>Welcome to Fitness Solutions</h1>
+            <p>Your journey to a healthier life starts here!</p>
+            <a href="#contact" class="btn btn-primary btn-lg">Contact Us</a>
+        </div>
+    </header>
+
+    <section class="about" id="about" data-aos="fade-right">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>At Fitness Solutions, we are dedicated to helping you achieve your fitness goals. Our experienced trainers and state-of-the-art facilities provide the perfect environment for your fitness journey.</p>
+        </div>
+    </section>
+
+    <section class="services" id="services" data-aos="zoom-in">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="
+                <div class="col-md-4" data-aos="flip-left">
+                    <div class="service-card">
+                        <h3>Personal Training</h3>
+                        <img src="img1.jpeg" class="img-fluid" alt="Personal Training">
+                        <p>Customized training plans tailored to your fitness goals.</p>
                     </div>
                 </div>
-            </section>
-        
-            <section class="gallery" id="gallery" data-aos="fade-up">
-                <div class="container">
-                    <h2>Gallery</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="image1.jpeg" alt="Gym Image 1"> <!-- Replace with your image URL -->
-                        </div>
-                        <div class="col-md-4">
-                            <img src="image2.jpeg" alt="Gym Image 2"> <!-- Replace with your image URL -->
-                        </div>
-                        <div class="col-md-4">
-                            <img src="image4.jpeg" alt="Gym Image 3"> <!-- Replace with your image URL -->
-                        </div>
+                <div class="col-md-4" data-aos="flip-left">
+                    <div class="service-card">
+                        <h3>Group Classes</h3>
+                        <img src="img2.jpeg" class="img-fluid" alt="Group Classes">
+                        <p>Join our energetic group classes for motivation and fun.</p>
                     </div>
                 </div>
-            </section>
-        
-            <section class="contact" id="contact" data-aos="fade-up">
-                <div class="container">
-                    <h2>Contact Us</h2>
-                    <form id="contactForm">
-                        <input type="text" class="form-control mb-2" placeholder="Your Name" required>
-                        <input type="email" class="form-control mb-2" placeholder="Your Email" required>
-                        <input type="text" class="form-control mb-2" placeholder="Your Phone Number" required>
-                        <textarea class="form-control mb-2" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+                <div class="col-md-4" data-aos="flip-left">
+                    <div class="service-card">
+                        <h3>Nutritional Guidance</h3>
+                        <img src="img3.jpeg" class="img-fluid" alt="Nutritional Guidance">
+                        <p>Expert advice on nutrition to complement your workouts.</p>
+                    </div>
                 </div>
-            </section>
-        
-            <footer>
-                <div class="container">
-                    <h4>Contact Us</h4>
-                    <p>outer Ring Rd, 6th block, 3rd Phase, Phase 3, Banashankari, Bengaluru, Karnataka 560050</p> <!-- Replace with your gym's address -->
-                    <p>Email: fitness.solutions.kathriguppe@gmail.com</p> <!-- Replace with your gym's email -->
-                    <p>Phone: 9916002240</p> <!-- Replace with your gym's phone number -->
-                    <p>Follow us on Instagram: <a href="https://www.instagram.com/fitness_solutions_kathriguppe?igsh=MWpudmdwZ3FwaGxxbg%3D%3D&utm_source=qr" target="_blank" style="color: #ff6f61;">Instagram</a></p> <!-- Replace with your gym's Instagram link -->
-                    <p>&copy; 2025 Fitness Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery" data-aos="fade-up">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="image1.jpeg" alt="Gym Image 1">
                 </div>
-            </footer>
-        
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-            <script>
-                AOS.init();
-        
-                document.getElementById('contactForm').addEventListener('submit', async (e) => {
-                    e.preventDefault();
-        
-                    const name = document.querySelector('input[placeholder="Your Name"]').value;
-                    const email = document.querySelector('input[placeholder="Your Email"]').value;
-                    const phone = document.querySelector('input[placeholder="Your Phone Number"]').value;
-                    const message = document.querySelector('textarea[placeholder="Your Message"]').value;
-        
-                    const response = await fetch('http://localhost:5001/contact', {  // Ensure this points to the correct port
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ name, email, phone, message }),
-                    });
-        
-                    const data = await response.json();
-                    alert(data.message || data.error);
-                });
-            </script>
-        </body>
-        </html>
+                <div class="col-md-4">
+                    <img src="image2.jpeg" alt="Gym Image 2">
+                </div>
+                <div class="col-md-4">
+                    <img src="image3.jpeg" alt="Gym Image 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact" data-aos="fade-up">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+                <input type="email" class="form-control mb-2" placeholder="Your Email" required>
+                <input type="text" class="form-control mb-2" placeholder="Your Phone Number" required>
+                <textarea class="form-control mb-2" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h4>Contact Us</h4>
+            <p>Outer Ring Rd, 6th block, 3rd Phase, Phase 3, Banashankari, Bengaluru, Karnataka 560050</p>
+            <p>Email: fitness.solutions.kathriguppe@gmail.com</p>
+            <p>Phone: 9916002240</p>
+            <p>Follow us on Instagram: <a href="https://www.instagram.com/fitness_solutions_kathriguppe" target="_blank" style="color: #ff6f61;">Instagram</a></p>
+            <p>&copy; 2025 Fitness Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.querySelector('input[placeholder="Your Name"]').value;
+            const email = document.querySelector('input[placeholder="Your Email"]').value;
+            const phone = document.querySelector('input[placeholder="Your Phone Number"]').value;
+            const message = document.querySelector('textarea[placeholder="Your Message"]').value;
+
+            const response = await fetch('http://localhost:5001/contact', {  // Update this URL after deployment
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, phone, message }),
+            });
+
+            const data = await response.json();
+            alert(data.message || data.error);
+        });
+    </script>
+</body>
+</html>
