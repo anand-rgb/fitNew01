@@ -141,19 +141,25 @@
             right: 0;
             background: rgba(0, 0, 0, 0.95);
             padding: 1rem;
-            transform: translateY(-100%);
             transition: transform 0.3s ease-in-out;
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
         }
 
         .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
             transform: translateY(0);
-            display: block;
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
             padding: 10px;
+            z-index: 50;
+            position: relative;
         }
 
         .hamburger-line {
@@ -166,60 +172,53 @@
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .desktop-menu {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .mobile-menu a {
-                display: block;
-                padding: 1rem;
-                color: white;
-                text-align: center;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-
-            .mobile-menu a:last-child {
-                border-bottom: none;
-            }
-
-            .hamburger.active .hamburger-line:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.active .hamburger-line:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active .hamburger-line:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-
-            /* Mobile-specific adjustments */
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-section p {
-                font-size: 1.2rem;
-            }
-
-            .service-card {
-                margin-bottom: 2rem;
-            }
-
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
+        .hamburger {
+            display: block;
         }
+
+        .desktop-menu {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Prevent body scroll when menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+    }
     </style>
 </head>
 
@@ -233,7 +232,7 @@
                     <img src="Images/newlogo.png" alt="Fitness Solutions Logo" class="h-12 w-auto mr-4">
                     <span class="text-2xl font-bold text-white">Fitness Solutions</span>
                 </div>
-                
+
                 <!-- Hamburger Menu -->
                 <div class="hamburger md:hidden">
                     <span class="hamburger-line"></span>
@@ -247,16 +246,20 @@
                     <a href="#about" class="nav-link text-white hover:text-yellow-400 transition-colors">About</a>
                     <a href="#services" class="nav-link text-white hover:text-yellow-400 transition-colors">Services</a>
                     <a href="#gallery" class="nav-link text-white hover:text-yellow-400 transition-colors">Gallery</a>
-                    <a href="#contact" class="bg-yellow-500 text-black px-6 py-2 rounded-full hover:bg-yellow-400 transition-colors">Contact Us</a>
+                    <a href="#contact"
+                        class="bg-yellow-500 text-black px-6 py-2 rounded-full hover:bg-yellow-400 transition-colors">Contact
+                        Us</a>
                 </div>
 
                 <!-- Mobile Menu -->
                 <div class="mobile-menu">
                     <a href="#home" class="block py-2 text-white hover:text-yellow-400 transition-colors">Home</a>
                     <a href="#about" class="block py-2 text-white hover:text-yellow-400 transition-colors">About</a>
-                    <a href="#services" class="block py-2 text-white hover:text-yellow-400 transition-colors">Services</a>
+                    <a href="#services"
+                        class="block py-2 text-white hover:text-yellow-400 transition-colors">Services</a>
                     <a href="#gallery" class="block py-2 text-white hover:text-yellow-400 transition-colors">Gallery</a>
-                    <a href="#contact" class="block py-2 text-white hover:text-yellow-400 transition-colors">Contact Us</a>
+                    <a href="#contact" class="block py-2 text-white hover:text-yellow-400 transition-colors">Contact
+                        Us</a>
                 </div>
             </div>
         </div>
@@ -375,6 +378,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Intersection Observer for animations
         const observerOptions = {
@@ -394,26 +398,50 @@
             observer.observe(element);
         });
 
-        // Form handling
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        // Initialize EmailJS
+        (function () {
+            // Add your EmailJS public key here
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+
+        // Form handling with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const name = document.querySelector('input[placeholder="Your Name"]').value;
-            const email = document.querySelector('input[placeholder="Your Email"]').value;
-            const phone = document.querySelector('input[placeholder="Your Phone Number"]').value;
-            const message = document.querySelector('textarea[placeholder="Your Message"]').value;
+            // Show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
 
-            const response = await fetch('http://localhost:5001/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, phone, message }),
-            });
+            // Prepare template parameters
+            const templateParams = {
+                from_name: document.querySelector('input[placeholder="Your Name"]').value,
+                reply_to: document.querySelector('input[placeholder="Your Email"]').value,
+                phone_number: document.querySelector('input[placeholder="Your Phone Number"]').value,
+                message: document.querySelector('textarea[placeholder="Your Message"]').value
+            };
 
-            const data = await response.json();
-            alert(data.message || data.error);
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function (response) {
+                    // Success message
+                    alert('Thank you! Your message has been sent successfully.');
+
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    // Error message
+                    console.error('Error:', error);
+                    alert('Sorry, there was an error sending your message. Please try again later.');
+                })
+                .finally(function () {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                });
         });
+
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -424,8 +452,8 @@
                 });
             });
         });
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
         const mobileMenu = document.querySelector('.mobile-menu');
         const body = document.querySelector('body');
 
@@ -451,4 +479,5 @@
         });
     </script>
 </body>
+
 </html>
